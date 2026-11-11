@@ -1,0 +1,94 @@
+.output-page {
+    padding: 32px;
+    color: #292929;
+}
+
+.output-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.output-header h1 {
+    margin: 0 0 10px;
+}
+
+.output-header p {
+    margin: 4px 0;
+}
+
+.output-back-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #e2c6a8;
+    color: #292929;
+    cursor: pointer;
+}
+
+.work-orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+
+.work-order {
+    width: 100%;
+    overflow-x: auto;
+    background: white;
+    padding: 16px;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.work-order-table {
+    width: 33%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    color: #292929;
+    font-size: 14px;
+    background: white;
+}
+
+.work-order-table col {
+    width: 25%;
+}
+
+.work-order-table th,
+.work-order-table td {
+    border: 1px solid #292929;
+    padding: 12px 10px;
+    text-align: left;
+    vertical-align: middle;
+    overflow-wrap: anywhere;
+    background: white;
+}
+
+.work-order-table th {
+    font-weight: 600;
+    background: #f2f2f2;
+}
+
+@media (max-width: 600px) {
+    .work-order {
+        padding: 8px;
+    }
+
+    .work-order-table {
+        min-width: 600px;
+    }
+
+    .work-order-table th,
+    .work-order-table td {
+        padding: 8px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 600px) {
+    .output-page {
+        padding: 16px;
+    }
+}

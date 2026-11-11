@@ -1,6 +1,6 @@
-
 import { useState } from "react";
 import "./InputPage.css";
+import OutputPage from "./OutputPage";
 
 const roomOptions = [
     "Living Room",
@@ -194,6 +194,15 @@ function InputPage() {
             (room) => !selectedRooms.includes(room)
         );
     };
+
+    if (submittedOrder) {
+        return (
+            <OutputPage
+                order={submittedOrder}
+                onBack={() => setSubmittedOrder(null)}
+            />
+        );
+    }
 
     return (
         <main className="input-page">
@@ -644,22 +653,6 @@ function InputPage() {
                         </button>
 
                     </form>
-                )}
-
-                {/* Temporary Submission Preview */}
-
-                {submittedOrder && (
-                    <section className="submitted-order">
-                        <h2>Order Submitted Successfully</h2>
-
-                        <pre>
-                            {JSON.stringify(
-                                submittedOrder,
-                                null,
-                                2
-                            )}
-                        </pre>
-                    </section>
                 )}
 
             </div>
