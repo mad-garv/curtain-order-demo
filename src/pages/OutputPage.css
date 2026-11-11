@@ -106,14 +106,14 @@
     }
 }
 
-
-/* ================================
-   PHONE WORK ORDER VIEWER
-================================ */
-
 .mobile-work-order-navigation {
     display: none;
 }
+
+
+/* ================================
+   PHONE — VERTICAL SCROLL + SNAP
+================================ */
 
 @media screen and (max-width: 600px) {
     .output-page {
@@ -139,28 +139,46 @@
     }
 
     .work-orders-list {
-        display: block;
+        display: flex;
+        flex-direction: column;
         flex: 1;
         min-height: 0;
-        position: relative;
-        overflow: hidden;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        /* Scroll snapping */
+        scroll-snap-type: y proximity;
+        scroll-padding-top: 0;
+
+        /* Smooth scrolling */
+        scroll-behavior: smooth;
+
+        /* Hide scrollbar */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .work-orders-list::-webkit-scrollbar {
+        display: none;
     }
 
     .work-order-item {
-        display: none;
-        height: 80dvh;
-        min-height: 0;
-        width: 100%;
-    }
-
-    .work-order-item.active {
         display: flex;
+        flex: 0 0 auto;
+        width: 100%;
+        min-height: 80dvh;
+        box-sizing: border-box;
+
+        /* Snap each work order to the top */
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
     }
 
     .work-order {
-        padding: 0;
         width: 100%;
         height: 100%;
+        padding: 0;
     }
 
     .work-order-table {
@@ -173,27 +191,6 @@
     .work-order-table td {
         padding: 6px 4px;
         overflow-wrap: anywhere;
-    }
-
-    .mobile-work-order-navigation {
-        flex-shrink: 0;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px 16px;
-        gap: 12px;
-    }
-
-    .mobile-work-order-navigation button {
-        padding: 8px 14px;
-        border: none;
-        border-radius: 8px;
-        background: #e2c6a8;
-        color: #292929;
-    }
-
-    .mobile-work-order-navigation button:disabled {
-        opacity: 0.35;
     }
 }
 
