@@ -44,7 +44,7 @@
 }
 
 .work-order-table {
-    width: 33%;
+    width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
     color: #292929;
