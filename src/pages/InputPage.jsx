@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./InputPage.css";
-import OutputPage from "./OutputPage";
 
 const roomOptions = [
     "Living Room",
@@ -38,12 +37,11 @@ const createRoom = () => ({
     windows: [createWindow("W1")],
 });
 
-function InputPage() {
+function InputPage({ onConfirmOrder }) {
     const [orderNo, setOrderNo] = useState("");
     const [rooms, setRooms] = useState([]);
     const [reviewOrder, setReviewOrder] = useState(null);
     const [isReviewing, setIsReviewing] = useState(false);
-    const [submittedOrder, setSubmittedOrder] = useState(null);
 
     // Add a new room
     const handleAddRoom = () => {
@@ -177,10 +175,7 @@ function InputPage() {
     };
 
     const handleConfirmOrder = () => {
-        setSubmittedOrder(reviewOrder);
-        setIsReviewing(false);
-
-        console.log("Confirmed order:", reviewOrder);
+        onConfirmOrder(reviewOrder);
     };
 
 
@@ -194,15 +189,6 @@ function InputPage() {
             (room) => !selectedRooms.includes(room)
         );
     };
-
-    if (submittedOrder) {
-        return (
-            <OutputPage
-                order={submittedOrder}
-                onBack={() => setSubmittedOrder(null)}
-            />
-        );
-    }
 
     return (
         <main className="input-page">
