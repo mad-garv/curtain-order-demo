@@ -53,7 +53,7 @@ function WorkOrder({ room, window }) {
                     <tr>
                         <th>FABRIC COLLECTION</th>
                         <td colSpan={2}>TBD</td>
-                        <td>CURTAIN TYPE</td>
+                        <td>{curtainType}</td>
                     </tr>
 
                     <tr>
